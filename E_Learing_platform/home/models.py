@@ -1,0 +1,56 @@
+from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import slugify
+from django.db.models.signals import pre_save
+from autoslug import AutoSlugField
+
+# Create your models here.
+class Contact(models.Model):
+    fname= models.CharField(max_length=120)
+    sname= models.CharField(max_length=120)
+    email= models.CharField(max_length=120)
+    phoneno = models.CharField(max_length=15)
+    desc = models.TextField()
+    date=models.DateField()
+    def __str__(self):
+        return self.fname
+
+class course(models.Model):
+    product_name= models.CharField(max_length=200)
+    price =models.CharField(max_length=100)
+    img =models.ImageField(upload_to='img')
+    duration =models.CharField(max_length=120)
+    info= models.TextField()
+    button =models.CharField(max_length=100,default="/log")
+    new_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
+    
+    def __str__(self) -> str:
+        return self.product_name
+
+
+# copy from youtube
+
+
+
+
+
+
+
+
+class sign_up_table (models.Model):
+    main = models.OneToOneField(User,on_delete= models.CASCADE)
+    mobile = models.IntegerField()
+    profile_pic = models.ImageField(upload_to='profiles',null=True,blank=True,default="photo")
+    add = models.CharField(max_length=500,null=True,blank=True)
+    city_name = models.CharField(max_length=100,null=True,blank=True)
+    state =models.CharField(max_length=50,null=True,blank=True)
+    pincode = models.CharField(max_length=120, null=True,blank=True,default="0")
+    p_mobile = models.CharField(max_length=15,null=True,blank=True)
+    qualification = models.CharField(max_length=200,null=True,blank=True)
+    update_date = models.DateTimeField(auto_now=True,null=True)
+    collge_name = models.CharField(max_length=200,null=True,blank=True)
+    def __str__(self) -> str:
+        return self.main.username
+
+
+ 
