@@ -22,6 +22,15 @@ class course(models.Model):
     duration =models.CharField(max_length=120)
     info= models.TextField()
     button =models.CharField(max_length=100,default="/log")
+    teacher_name = models.CharField(max_length=200,null=True)
+    rating = models.CharField(max_length=100,null=True)
+    level = models.CharField(max_length=200,null=True)
+    about_course = models.TextField(null=True)
+    chapter1 = models.CharField(max_length=500,null=True)
+    chapter2 = models.CharField(max_length=500,null=True)
+    chapter3 = models.CharField(max_length=500,null=True)
+    chapter4 = models.CharField(max_length=500,null=True)
+    chapter5 = models.CharField(max_length=500,null=True)
     new_slug = AutoSlugField(populate_from='product_name',unique=True,null=True,default=None)
     
     def __str__(self) -> str:
@@ -29,8 +38,6 @@ class course(models.Model):
 
 
 # copy from youtube
-
-
 
 
 

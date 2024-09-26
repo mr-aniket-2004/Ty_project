@@ -82,6 +82,7 @@
 
         .btn:hover {
             transform: scale(1.05);
+            background-color: var(--primary-color);
         }
 
         .btn a {
@@ -332,6 +333,9 @@
             display: block;
             margin: 30px auto;
         }
+        #small{
+            font-size: 19px;
+        }
 
         @media (max-width:1350px) {
             .highlights {
@@ -383,39 +387,37 @@
 </head>
 
 <body>
+    {% for i in new %}
     <nav class="navbar">
         <div class="logo-img">
-            <img src="../static/main.logo-1.png" alt="">
+            <img src="/static/main.logo-1.png" alt="">
         </div>
         <div class="nav-title">
             <h1>Gurukul E-Learning Academy</h1>
         </div>
         <div class="right">
-            <button class="btn"><a href="#">Back to Course</a></button>
-            <div class="profile-pic">
-                <img src="../static/cummunity-photo/student-demo.jpg" alt="">
-            </div>
+            <button class="btn"><a href="/student/course">Back to Course</a></button>
+
         </div>
     </nav>
     <div class="main-title">
         <div class="contain">
-            <h1>Python Programming</h1>
-            <p class="course-tagline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore earum
-                perspiciatis porro reiciendis aspernatur non facere, exercitationem tenetur cupiditate voluptas?</p>
-            <h3>Instructor : <span class="teachername">Dr. Sandeep Rathod</span></h3>
+            <h1>{{i.product_name}}</h1>
+            <p class="course-tagline">{{i.info}}</p>
+            <h3>Instructor : <span class="teachername">{{i.teacher_name}}</span></h3>
             <div class="couser-highlights">
                 <ul>
                     <li class="highlights">
-                        <p class="h-title">4.48 <span class="icon" style="color: rgb(222, 222, 4);"><i
+                        <p class="h-title">{{i.rating}} <span class="icon" style="color: rgb(222, 222, 4);"><i
                                     class='bx bxs-star'></i></span></p>
                         <p>Rating</p>
                     </li>
                     <li class="highlights" id="one">
-                        <p class="h-title">Begineer</p>
+                        <p class="h-title">{{i.level}}</p>
                         <p>Level</p>
                     </li>
                     <li class="highlights" id="one">
-                        <p class="h-title"><span class="icon"><i class='bx bx-calendar'></i></span>&nbsp;4 Week</p>
+                        <p class="h-title"><span class="icon"><i class='bx bx-calendar'></i></span>&nbsp;{{i.duration}}</p>
                         <p>Course Duration </p>
                     </li>
 
@@ -425,7 +427,7 @@
         </div>
         <div class="flow-box">
             <div class="flow-img">
-                <img src="../static/certification.png" alt="">
+                <img src="/static/certification.png" alt="">
             </div>
             <div class="flow-info">
                 <h2 class="flow-title">Why upskill with us?</h2>
@@ -450,15 +452,7 @@
     </div>
     <div class="about conatiner">
         <h1>About the Course</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ducimus sit perspiciatis quam modi distinctio
-            debitis ipsum deserunt impedit consequatur, iusto, fugiat, porro sint corporis nesciunt ea assumenda rerum
-            officiis odit expedita obcaecati. Amet ut similique consectetur illum totam iure minus voluptas itaque
-            quisquam ratione aut dolor eum excepturi placeat dolores ex doloremque ad exercitationem corrupti,
-            temporibus eos nihil. Dicta voluptatem optio, quidem nemo atque quas excepturi vel provident ullam ratione,
-            at ipsum laudantium accusamus? Aliquam at iste quidem consequuntur saepe id sit perferendis ipsum nemo
-            explicabo dicta laborum vero ut, ullam fugit? A exercitationem hic, nihil sequi pariatur dolor consectetur
-            quam molestias. Iste error cumque hic laborum alias, autem nesciunt, illo maxime vero, eveniet odit eaque
-            deserunt nam voluptas.</p>
+        <p>{{i.about_course}}</p>
     </div>
     <div class="course-layout conatiner">
         <h1>What you Learn !</h1>
@@ -466,11 +460,11 @@
             <div class="course">
                 <div class="course-preview">
                     <h6>Course</h6>
-                    <h2>Python Programming</h2>
+                    <h2 id="small">{{i.product_name}}</h2>
                 </div>
                 <div class="course-info">
                     <h6>Chapter 1</h6>
-                    <h2>Callbacks & Closures</h2>
+                    <h2>{{i.chapter1}}</h2>
                 </div>
             </div>
         </div>
@@ -478,11 +472,11 @@
             <div class="course">
                 <div class="course-preview">
                     <h6>Course</h6>
-                    <h2>Python Programming</h2>
+                    <h2 id="small">{{i.product_name}}</h2>
                 </div>
                 <div class="course-info">
                     <h6>Chapter 2</h6>
-                    <h2>Callbacks & Closures</h2>
+                    <h2>{{i.chapter2}}</h2>
                 </div>
             </div>
         </div>
@@ -490,11 +484,11 @@
             <div class="course">
                 <div class="course-preview">
                     <h6>Course</h6>
-                    <h2>Python Programming</h2>
+                    <h2 id="small">{{i.product_name}}</h2>
                 </div>
                 <div class="course-info">
                     <h6>Chapter 3</h6>
-                    <h2>Callbacks & Closures</h2>
+                    <h2>{{i.chapter3}}</h2>
                 </div>
             </div>
         </div>
@@ -502,11 +496,11 @@
             <div class="course">
                 <div class="course-preview">
                     <h6>Course</h6>
-                    <h2>Python Programming</h2>
+                    <h2 id="small">{{i.product_name}}</h2>
                 </div>
                 <div class="course-info">
                     <h6>Chapter 4</h6>
-                    <h2>Callbacks & Closures</h2>
+                    <h2>{{i.chapter4}}</h2>
                 </div>
             </div>
         </div>
@@ -514,11 +508,11 @@
             <div class="course">
                 <div class="course-preview">
                     <h6>Course</h6>
-                    <h2>Python Programming</h2>
+                    <h2 id="small">{{i.product_name}}</h2>
                 </div>
                 <div class="course-info">
                     <h6>Chapter 5</h6>
-                    <h2>Callbacks & Closures</h2>
+                    <h2>{{i.chapter5}}</h2>
                 </div>
             </div>
         </div>
@@ -599,7 +593,7 @@
         </div>
     </div>
 
-
+    {% endfor %}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

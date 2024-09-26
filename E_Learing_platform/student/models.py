@@ -6,6 +6,6 @@ from home.models import course
 
 
 class student_couser(models.Model):
-    core_subject = models.OneToOneField(course,on_delete=models.CASCADE)
+    # core_subject = models.OneToOneField(course,on_delete=models.CASCADE)
     def __str__(self) -> str:
         return self.core_subject.product_name

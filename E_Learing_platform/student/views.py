@@ -74,6 +74,6 @@ def student_cour(request):
 def temp(request,slug):
     new_course = course.objects.filter(new_slug=slug)
     data ={
-        "new" :new_course
+        "new" :new_course,
     }
     return render(request,"course_info.html",data)
