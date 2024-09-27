@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from home.models import sign_up_table ,course
-from student.models import usercourse
+from student.models import usercourse,helpquary
 # Create your views here.
 
 def index1(request):
@@ -107,6 +107,13 @@ def chat(request):
     return render(request,"chat_with_teacher.html")
 
 def help(request):
+    if request.method == "POST":
+        student_name = request.POST.get('name')
+        student_email = request.POST.get('email')
+        student_message = request.POST.get('message')
+        print(student_name,student_email,student_message)
+        myque= helpquary(student_name=student_name,student_email=student_email,student_message=student_message)
+        myque.save()
     return render(request,"support.html")
     
 def profile(request):

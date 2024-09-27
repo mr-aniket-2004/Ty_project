@@ -19,3 +19,11 @@ class usercourse(models.Model):
 
     def __str__(self) -> str:
         return self.user.first_name+""+ self.sub.product_name
+    
+class helpquary(models.Model):
+    student_name=models.CharField(max_length=500)
+    student_email =models.CharField(max_length=300)
+    student_message = models.TextField()
+
+    def __str__(self) -> str:
+        return self.student_name
