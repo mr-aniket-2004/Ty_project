@@ -11,5 +11,6 @@ urlpatterns = [
    path("/course",views.student_cour, name="student_course"),
    path("/course/temp",views.temp , name='temp'),
    path("/course/temp/<slug>",views.temp , name='temp'),
+   path("/course/temp/checkout/<slug:slug>",views.checkout,name="checkout")
 #    path("log",views.student_logout,name='log'),
 ]

@@ -397,8 +397,11 @@
         </div>
         <div class="right">
             <button class="btn"><a href="/student/course">Back to Courses</a></button>
-
+            <div class="profile-pic">
+                <img src="{{user.sign_up_table.profile_pic.url}}" alt="">
+            </div>
         </div>
+
     </nav>
     <div class="main-title">
         <div class="contain">
@@ -423,7 +426,8 @@
 
                 </ul>
             </div>
-            <button class="btn1"><a href="">Enroll Now</a></button>
+            <button class="btn1"><a href="checkout/{{i.new_slug}}">Enroll Now</a></button>
+            <button class="btn1" disabled><a href="" >Already Enroll</a></button>
         </div>
         <div class="flow-box">
             <div class="flow-img">

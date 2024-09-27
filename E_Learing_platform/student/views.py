@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from home.models import sign_up_table ,course
+from student.models import usercourse
 # Create your views here.
 
 def index1(request):
@@ -77,3 +78,23 @@ def temp(request,slug):
         "new" :new_course,
     }
     return render(request,"course_info.html",data)
+
+
+def checkout(request,slug):
+    sub = course.objects.get(new_slug=slug)
+    # if sub.price == 0:
+    #     sub = usercourse(
+    #         user = request.user,
+    #         sub = sub,
+    #     )
+    #     sub.save()
+        # return redirect('dashboard')
+    context ={
+        "sub":sub,
+    }
+    if request.method  == "POST":
+        c_name = request.POST.get('coursename')
+        c_duration = request.POST.get('duration')
+        c_price = request.POST.get('price')
+        print(c_name,c_duration,c_price)
+    return render(request,"checkout.html",context)
