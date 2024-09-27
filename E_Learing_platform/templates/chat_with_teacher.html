@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Student DashBoard</title>
+    <title>Chat with Teacher</title>
     <style>
         /* ===== Google Font Import - Poppins ===== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
@@ -449,119 +449,6 @@
             height: 300px;
         }
 
-        .btn {
-            width: 200px;
-            height: 40px;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            border-radius: 17px;
-            border: none;
-            box-shadow: 0 0 10px var(--primary-color);
-            float: right;
-        }
-
-        .btn a {
-            color: var(--text-color);
-            font-size: 1.2rem;
-
-        }
-
-        .overview {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-        }
-
-        .course-card {
-            border: 1px solid gray;
-            max-width: 300px;
-            border-radius: 12px;
-            transition: all .3s ease-in-out;
-        }
-
-        .course-card:hover {
-            box-shadow: 0 0 10px gray;
-        }
-
-        .course-card .img {
-            /* border: 1px solid green; */
-            width: 100%;
-            height: 200px;
-
-        }
-
-        .course-card .img img {
-            max-width: 100%;
-            height: 100%;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .course-card .info {
-            /* border: 1px solid purple; */
-            padding: 5px;
-            height: 260px;
-            /* color: white; */
-        }
-
-        .btn1 {
-            /* border: 1px solid red; */
-            width: 150px;
-            height: 30px;
-            text-align: center;
-            display: block;
-            margin: 10px auto;
-            border: 1px solid var(--primary-color);
-            background-color: #fff;
-            color: aqua;
-            border-radius: 8px;
-            transition: all .5s ease-in-out;
-
-        }
-
-        .btn1:hover {
-            background-color: var(--primary-color);
-            box-shadow: 0 0 5px var(--primary-color);
-            color: white;
-            transform: scale(1.06);
-        }
-
-        .btn1 a {
-            color: black;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .allcourse {
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            row-gap: 20px;
-        }
-
-        .title1 {
-            font-size: 18px;
-            color: var(--text-color);
-        }
-        #info{
-            color: var(--text-color);
-        }
-        .text1{
-            color: var(--text-color);
-        }
-        .price{
-            color: var(--text-color);
-        }
-
-
-
-        @media (max-width:1400px) {
-            .allcourse {
-                display: grid;
-                grid-template-columns: auto auto auto;
-                row-gap: 20px;
-            }
-        }
-
         @media (max-width:1300px) {
             .box {
                 width: 500px;
@@ -633,11 +520,6 @@
 
             .activity .activity-data {
                 overflow-X: scroll;
-            }
-            .allcourse {
-                display: grid;
-                grid-template-columns:  auto auto;
-                row-gap: 20px;
             }
         }
 
@@ -717,7 +599,7 @@
         </div>
 
         <div class="menu-items">
-            <ul class="nav-links">
+           <ul class="nav-links">
                 <li><a href="student">
                         <i class='bx bxs-category'></i>
                         <span class="link-name">Dahsboard</span>
@@ -779,30 +661,17 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-tachometer-fast-alt"></i>
-                    <span class="text">All Course</span>
+                    <i class='bx bxs-conversation'></i>
+                    <span class="text">Chat with Teacher</span>
                 </div>
-                <button class="btn"><a href="">My Course</a></button>
-            </div>
-        </div>
-        <div class="allcourse">
-            {% for i in all %}
-            <div class="course-card">
-                <div class="img">
-                    <img src="{{i.img.url}}" alt="">
-                </div>
-                <div class="info">
-                    <h2 class="title1">{{i.product_name}}</h2>
-                    <p style="margin-bottom: 8px;" id="info">{{i.info}}</p>
-                    <p class="text1"><i class='bx bxs-calendar'></i>&nbsp;{{i.duration}}</p>
-                    <p class="price"><i class='bx bx-rupee'></i>{{i.price}}</p>
-                </div>
-                <button class="btn1"><a href="course/temp/{{i.new_slug}}">Show More</a></button>
-            </div>
-            {% endfor %}
-        </div>
 
 
+
+        </div>
+
+       
+
+        </div>
     </section>
 
     <script>

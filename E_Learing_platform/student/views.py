@@ -98,3 +98,16 @@ def checkout(request,slug):
         c_price = request.POST.get('price')
         print(c_name,c_duration,c_price)
     return render(request,"checkout.html",context)
+
+def assignment(request):
+    return render(request,"assignment.html")
+
+
+def chat(request):
+    return render(request,"chat_with_teacher.html")
+
+def help(request):
+    return render(request,"support.html")
+    
+def profile(request):
+    return render(request,"profile.html")

@@ -11,6 +11,10 @@ urlpatterns = [
    path("/course",views.student_cour, name="student_course"),
    path("/course/temp",views.temp , name='temp'),
    path("/course/temp/<slug>",views.temp , name='temp'),
-   path("/course/temp/checkout/<slug:slug>",views.checkout,name="checkout")
+   path("/course/temp/checkout/<slug:slug>",views.checkout,name="checkout"),
+   path("/assignment",views.assignment,name="assignment"),
+   path("/chat",views.chat,name="chat"),
+   path("/help",views.help,name="help"),
+   path("/profile",views.profile,name="profile"),
 #    path("log",views.student_logout,name='log'),
 ]
