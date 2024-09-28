@@ -16,49 +16,49 @@ def student_logout(request):
 
 
 def update_info(request):
-    context ={}
-    data = sign_up_table.objects.get(main__id=request.user.id)
-    # print(data)
-    context["data"]=data
-    if request.method == "POST":
-        print(request.POST)
-        # print(request.file)
-        profile_pic = request.POST.get('profile-photo')
-        email= request.POST.get('Email')
-        frist_name= request.POST.get('Frist_Name')
-        last_name = request.POST.get('Last_Name')
-        add = request.POST.get('Address')
-        city = request.POST.get('City')
-        state = request.POST.get('State')
-        pincode = request.POST.get('Pincode')
-        mo=request.POST.get('no')
-        parent_no = request.POST.get('p_no')
-        qualification = request.POST.get('Qualification')
-        college = request.POST.get('College')
+#     context ={}
+#     data = sign_up_table.objects.get(main__id=request.user.id)
+#     # print(data)
+#     context["data"]=data
+#     if request.method == "POST":
+#         print(request.POST)
+#         # print(request.file)
+#         profile_pic = request.POST.get('profile-photo')
+#         email= request.POST.get('Email')
+#         frist_name= request.POST.get('Frist_Name')
+#         last_name = request.POST.get('Last_Name')
+#         add = request.POST.get('Address')
+#         city = request.POST.get('City')
+#         state = request.POST.get('State')
+#         pincode = request.POST.get('Pincode')
+#         mo=request.POST.get('no')
+#         parent_no = request.POST.get('p_no')
+#         qualification = request.POST.get('Qualification')
+#         college = request.POST.get('College')
 
-        urs = User.objects.get(id=request.user.id)
-        urs.first_name=frist_name
-        urs.last_name=last_name
-        urs.email=email
-        urs.save()
+#         urs = User.objects.get(id=request.user.id)
+#         urs.first_name=frist_name
+#         urs.last_name=last_name
+#         urs.email=email
+#         urs.save()
 
-        data.mobile=mo
-        data.add = add
-        data.city_name =city
-        data.state = state
-        data.pincode =pincode
-        data.p_mobile =parent_no
-        data.qualification =qualification
-        data.collge_name =college
-        data.save()
+#         data.mobile=mo
+#         data.add = add
+#         data.city_name =city
+#         data.state = state
+#         data.pincode =pincode
+#         data.p_mobile =parent_no
+#         data.qualification =qualification
+#         data.collge_name =college
+#         data.save()
 
-        if "profile-photo" in request.FILES :
-            img = request.FILES["profile-photo"]
-            data.profile_pic =img
-            data.save()
+#         if "profile-photo" in request.FILES :
+#             img = request.FILES["profile-photo"]
+#             data.profile_pic =img
+#             data.save()
 
-        context["status"]= "Changes save Successfully "
-    return render(request, "update_form.html" ,context)
+#         context["status"]= "Changes save Successfully "
+    return render(request, "update_form.html")
     # return HttpResponseRedirect('update_info')
 
 def feedback_info(request):
@@ -100,11 +100,21 @@ def checkout(request,slug):
     return render(request,"checkout.html",context)
 
 def assignment(request):
-    return render(request,"assignment.html")
+    data = sign_up_table.objects.get(main__id =request.user.id)
+    print(data)
+    if data.ispaid == True:
+        return render(request,"assignment.html")
+    else:
+        return render(request,"assignment_false.html")
 
 
 def chat(request):
-    return render(request,"chat_with_teacher.html")
+    data = sign_up_table.objects.get(main__id =request.user.id)
+    print(data)
+    if data.ispaid == True:
+        return render(request,"chat_with_teacher.html")
+    else:
+        return render(request,"chat_false.html")
 
 def help(request):
     if request.method == "POST":
@@ -117,4 +127,48 @@ def help(request):
     return render(request,"support.html")
     
 def profile(request):
-    return render(request,"profile.html")
+    context ={}
+    data = sign_up_table.objects.get(main__id=request.user.id)
+    # print(data)
+    context["data"]=data
+    if request.method == "POST":
+        print(request.POST)
+        # print(request.file)
+        profile_pic = request.POST.get('profile-photo')
+        email= request.POST.get('Email')
+        frist_name= request.POST.get('Frist_Name')
+        last_name = request.POST.get('Last_Name')
+        add = request.POST.get('Address')
+        city = request.POST.get('City')
+        state = request.POST.get('State')
+        pincode = request.POST.get('Pincode')
+        about_me = request.POST.get('aboutme')
+        mo=request.POST.get('no')
+        parent_no = request.POST.get('p_no')
+        qualification = request.POST.get('Qualification')
+        college = request.POST.get('College')
+
+        urs = User.objects.get(id=request.user.id)
+        urs.first_name=frist_name
+        urs.last_name=last_name
+        urs.email=email
+        urs.save()
+
+        data.mobile=mo
+        data.add = add
+        data.city_name =city
+        data.state = state
+        data.pincode =pincode
+        data.about_me=about_me
+        data.p_mobile =parent_no
+        data.qualification =qualification
+        data.collge_name =college
+        data.save()
+
+        if "profile-photo" in request.FILES :
+            img = request.FILES["profile-photo"]
+            data.profile_pic =img
+            data.save()
+
+        context["status"]= "Changes save Successfully "
+    return render(request,"profile.html",context)

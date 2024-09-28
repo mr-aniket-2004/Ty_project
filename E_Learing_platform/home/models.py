@@ -56,6 +56,8 @@ class sign_up_table (models.Model):
     qualification = models.CharField(max_length=200,null=True,blank=True)
     update_date = models.DateTimeField(auto_now=True,null=True)
     collge_name = models.CharField(max_length=200,null=True,blank=True)
+    about_me = models.TextField(null=True,blank=True)
+    ispaid = models.BooleanField(default=False)
     def __str__(self) -> str:
         return self.main.username
 

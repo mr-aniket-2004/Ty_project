@@ -8,10 +8,8 @@
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Profile</title>
+    <title>Assignment</title>
     <style>
         /* ===== Google Font Import - Poppins ===== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
@@ -137,9 +135,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        nav .menu-items ul{
-            margin-left: 0rem;
-        }
+
         .menu-items li {
             list-style: none;
         }
@@ -452,6 +448,60 @@
             width: 600px;
             height: 300px;
         }
+        .container1 {
+            background-color: var(--panel-color);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0px 0px 15px var(--border-color);
+            color: var(--text-color);
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+        }
+        .icon img{
+            width: 100%;
+            height: 100%;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        p {
+            color: var(--text-color);
+            margin-bottom: 24px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .price {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        span{
+            color: #0b3cc1;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
 
         @media (max-width:1300px) {
             .box {
@@ -589,68 +639,6 @@
                 width: 100%;
             }
         }
-
-        .myprofile {
-            border-radius: 18px;
-            color: var(--text-color);
-            padding: 20px;
-            box-shadow: 0 0 10px var(--border-color);
-        }
-
-        .user-profile {
-            max-width: 800px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .user-profile .profile-img {
-            border: 1px solid black;
-            height: 300px;
-            width: 300px;
-            border-radius: 50%;
-        }
-
-        .user-profile .profile-img img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-
-        #row {
-            margin: 25px 0px;
-            color: var(--text-color);
-            /* border-bottom: 1px solid gray; */
-        }
-
-        #aboutme {
-            height: 100px;
-        }
-
-        input {
-            background-color: var(--panel-color);
-        }
-
-        #bg {
-            background-color: var(--panel-color);
-            color: var(--text-color);
-        }
-
-        .bg {
-            background-color: var(--panel-color);
-            color: var(--text-color);
-        }
-        #profile-box{
-            /* border-bottom: 1px solid gray; */
-            padding-top: 20px;
-        }
-        .nav-links{
-            padding-left: 0rem;
-        }
-        .logout-mode{
-            padding-left: 0rem;
-        }
     </style>
 </head>
 
@@ -727,137 +715,26 @@
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class='bx bxs-user'></i>
-                    <span class="text">Profile</span>
+                    <i class='bx bxs-edit-alt'></i>
+                    <span class="text">Assignment</span>
                 </div>
-
-
-
-
             </div>
-            <div class="myprofile">
-                <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% if status %}
-                    <!-- <div class="alert alert-primary" style="text-align: center;">{{status}}</div> -->
-                    <script>
-                        alert("{{status}}");
-                        window.location = "student"
-                    </script>
-                    {% endif %}
-                    <div class="user-profile" >
-                        <div class="profile-img">
-                            <img src="{{data.profile_pic.url}}" alt="">
+            <div class="notice">
+                <div class="notice-box">
+                    <div class="container1">
+                        <div class="icon">
+                            <img src="../static/upgradeplan.png" alt="Upgrade Icon">
                         </div>
-                        <div class="update-img">
-                            <input type="file" name="profile-photo" id="">
-                        </div>
+                        <h2>Upgrade your Plan</h2>
+                        <p>Please upgrade your plan to <span><i>Gurukul Plus</i></span>&nbsp; get access to Chat with are Teachers.&nbsp;Get more ....</p>
+                        <p class="price">Pay <span class="icon-logo"><i class='bx bx-rupee'></i>2000</span>/Month</p>
+                        <a href="#" class="button">Upgrade Now</a>
                     </div>
-                    <div class="personal-info"id="profile-box">
-                        <h5>Personal Information</h5>
-                        <div class="user-personalinfo">
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="username">Username :</label>
-                                    <input type="text" class="form-control bg" placeholder="Username "
-                                        aria-label="First name" name="username" value="{{user.username}}">
-                                </div>
-                                <div class="col">
-                                    <label for="Email">Email :</label>
-                                    <input type="text" class="form-control bg" placeholder="Email" aria-label="Last name"
-                                         name="Email" value="{{user.email}}">
-                                </div>
-                            </div>
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="frist_name"> Frist Name :</label>
-                                    <input type="text" class="form-control bg" placeholder="First name"
-                                        aria-label="First name"name="Frist_Name" value="{{user.first_name}}">
-                                </div>
-                                <div class="col">
-                                    <label for="Last_name"> Last Name :</label>
-                                    <input type="text" class="form-control bg" placeholder="Last name"
-                                        aria-label="Last name" name="Last_Name" value="{{user.last_name}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-info" id="profile-box">
-                        <h5>Contact Information </h5>
-                        <div class="user-contact" id="row">
 
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="inputAddress" class="form-label">Address</label>
-                                    <input type="text" class="form-control bg" id="inputAddress"
-                                        placeholder="Enter the Address" name="Address" value="{{data.add}}">
-                                </div>
-                            </div>
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="inputCity" class="form-label">City</label>
-                                    <input type="text" class="form-control bg" id="inputCity bg" name="City" value="{{data.city_name}}" >
-                                </div>
-                                <div class="col">
-                                    <label for="inputState" class="form-label">State</label>
-                                    <input type="text" class="form-control bg" id="inputCity" name="State" value="{{data.state}}">
-                                </div>
-                                <div class="col">
-                                    <label for="inputZip" class="form-label">Pincode</label>
-                                    <input type="text" class="form-control bg" id="inputZip" name="Pincode" value="{{data.pincode}}">
-                                </div>
-                            </div>
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="frist_name">Mobile No :</label>
-                                    <input type="text" class="form-control" 
-                                        aria-label="First name" id="bg"name="no" value="{{data.mobile}}">
-                                </div>
-                                <div class="col">
-                                    <label for="Last_name">Parent Mobile no :</label>
-                                    <input type="text" class="form-control" 
-                                        aria-label="Last name" id="bg" name="p_no" value="{{data.p_mobile}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-me" id="profile-box">
-                        <h5>About me</h5>
-                        <div class="about-user">
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="aboutme" class="form-label">About me </label>
-                                    <input type="text" class="form-control bg" id="aboutme" placeholder="About me...." name="aboutme" value="{{data.about_me}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="education-info" id="profile-box">
-                        <h5>Academic Information </h5>
-                        <div class="user-academic">
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="education" class="form-label">Highest Education :</label>
-                                    <input type="text" class="form-control bg" id="inputAddress" name="Qualification" value="{{data.qualification}}">
-                                </div>
-                            </div>
-                            <div class="row" id="row">
-                                <div class="col">
-                                    <label for="college" class="form-label">College Name</label>
-                                    <input type="text" class="form-control bg" id="college " name="College" value="{{data.collge_name}}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn" style="padding-top: 20px;">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                          </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-        </div>
+
 
         </div>
     </section>
@@ -896,12 +773,6 @@
             }
         })
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -711,6 +711,11 @@
         .button input[type="button"]:hover {
             background: #5029bc;
         }
+        #bg{
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
 
         @media (max-width: 950px) {
             .container {
@@ -862,13 +867,13 @@
                         <form action="{% url 'help' %}" method="post">
                             {% csrf_token %}
                             <div class="input-box">
-                                <input type="text" placeholder="Enter your name"  name="name"/>
+                                <input type="text" placeholder="Enter your name"  name="name" id="bg"/>
                             </div>
                             <div class="input-box">
-                                <input type="text" placeholder="Enter your email" name="email"/>
+                                <input type="text" placeholder="Enter your email" name="email" id="bg"/>
                             </div>
                             <div class="input-box message-box">
-                                <textarea placeholder="Enter your message" name="message"></textarea>
+                                <textarea placeholder="Enter your message" name="message" id="bg"></textarea>
                             </div>
                             <div class="button">
                                 <!-- <input type="button" value="Send Now" /> -->
