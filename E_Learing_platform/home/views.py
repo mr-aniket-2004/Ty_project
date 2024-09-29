@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect , HttpResponse, HttpResponseRedir
 from datetime import datetime
 from .models import Contact ,course, sign_up_table
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -100,3 +100,8 @@ def java(request):
 
 # def update_info(request):
 #     return render(request, "update_form.html")
+
+
+def student_logout(request):
+    logout(request)
+    return render(request,"login.html")
