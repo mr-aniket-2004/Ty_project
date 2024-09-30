@@ -426,8 +426,11 @@
 
                 </ul>
             </div>
+            {% if enroll_course is None %}
             <button class="btn1"><a href="checkout/{{i.new_slug}}">Enroll Now</a></button>
+            {% else %}
             <button class="btn1" disabled><a href="" >Already Enroll</a></button>
+            {% endif %}
         </div>
         <div class="flow-box">
             <div class="flow-img">

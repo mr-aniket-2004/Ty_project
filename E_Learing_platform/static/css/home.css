@@ -563,7 +563,7 @@ li i {
   position: relative;
   background-color: white;
   padding: 0 15px 20px;
-  box-shadow: 0 15px 10px rgb(137, 230, 247);
+  box-shadow: 0 0px 10px aqua;
   border-radius: 8px;
 }
 

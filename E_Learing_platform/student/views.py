@@ -1,12 +1,16 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
-from home.models import sign_up_table ,course
+from home.models import sign_up_table ,course,notification
 from student.models import usercourse,helpquary
 # Create your views here.
 
 def index1(request):
-    return render(request,"studentdashboard.html")
+    new = notification.objects.all()
+    context ={
+        "new":new
+    }
+    return render(request,"studentdashboard.html",context)
 
 
 def student_logout(request):
@@ -29,8 +33,14 @@ def student_cour(request):
 
 def temp(request,slug):
     new_course = course.objects.filter(new_slug=slug)
+    course_id = course.objects.get(new_slug = slug)
+    try:
+        enroll_course = usercourse.objects.get(user = request.user,sub =course_id)
+    except usercourse.DoesNotExist:
+        enroll_course = None
     data ={
         "new" :new_course,
+        "enroll_course":enroll_course,
     }
     
     return render(request,"course_info.html",data)
@@ -46,7 +56,7 @@ def checkout(request,slug):
     context["course_user"]=course_user
     temp = usercourse(user=course_user,sub=sub)
     temp.save()
-    return redirect('dashboard')
+    return redirect('mycourse')
     return render(request,"checkout.html",context)
 
 def assignment(request):
@@ -124,3 +134,9 @@ def profile(request):
     return render(request,"profile.html",context)
 
 
+def mycourse(request):
+    data = usercourse.objects.filter(user=request.user)
+    context ={
+        "data":data
+    }
+    return render(request,"mycourse.html",context)

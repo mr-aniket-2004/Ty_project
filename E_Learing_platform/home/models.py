@@ -63,3 +63,8 @@ class sign_up_table (models.Model):
 
 
  
+class notification(models.Model):
+    name = models.CharField(max_length=500,blank=True,null=True)
+    main = models.TextField(null=True,blank=True)
+    def __str__(self) -> str:
+        return self.name

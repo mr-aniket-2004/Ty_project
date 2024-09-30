@@ -449,6 +449,7 @@
             height: 300px;
         }
 
+
         @media (max-width:1300px) {
             .box {
                 width: 500px;
@@ -695,17 +696,10 @@
             <div class="tbox">
                 <h1 style="padding-left: 10px;">Notifications :</h1>
                 <marquee behavior="" direction="up" scrollamount="5" style="height: 300PX;">
-                    <ul style="line-height: 40px;">
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
-                        <li>ANIKET ANIL CHANDIWADE </li>
+                    <ul style="line-height: 40px; padding-left: 30px;">
+                        {% for i in new %}
+                           <a href="" style="text-decoration: none;"> <li style="list-style: none;text-decoration: none;color: var(--text-color);">{{i.name}}</li></a>
+                        {% endfor %}
                     </ul>
                 </marquee>
             </div>
