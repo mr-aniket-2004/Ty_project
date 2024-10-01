@@ -78,7 +78,7 @@ def log(request):
             if key_user.is_superuser:
                 return HttpResponseRedirect('admin')
             if key_user.is_staff:
-                return redirect('teachdash')
+                return redirect('teacherdashboard')
             if key_user.is_active:
                 return redirect('dashboard')
             # return redirect('dashboard')

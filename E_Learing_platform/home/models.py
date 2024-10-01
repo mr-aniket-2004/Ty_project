@@ -68,3 +68,20 @@ class notification(models.Model):
     main = models.TextField(null=True,blank=True)
     def __str__(self) -> str:
         return self.name
+    
+
+class free_course(models.Model):
+    core = models.ForeignKey(course,on_delete=models.CASCADE)
+    theme1 = models.ImageField(upload_to="coursetheme",null=True, blank=True)
+    youtube1 = models.CharField(max_length=500,null=True,blank=True)
+    theme2 = models.ImageField(upload_to="coursetheme",null=True, blank=True)
+    youtube2 = models.CharField(max_length=500,null=True,blank=True)
+    theme3 = models.ImageField(upload_to="coursetheme",null=True, blank=True)
+    youtube3 = models.CharField(max_length=500,null=True,blank=True)
+    theme4 = models.ImageField(upload_to="coursetheme",null=True, blank=True)
+    youtube4 = models.CharField(max_length=500,null=True,blank=True)
+    theme5 = models.ImageField(upload_to="coursetheme",null=True, blank=True)
+    youtube5 = models.CharField(max_length=500,null=True,blank=True)
+
+    def __str__(self) -> str:
+        return self.core.product_name

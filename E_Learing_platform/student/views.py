@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from home.models import sign_up_table ,course,notification
 from student.models import usercourse,helpquary
+
 # Create your views here.
 
 def index1(request):
@@ -140,3 +141,6 @@ def mycourse(request):
         "data":data
     }
     return render(request,"mycourse.html",context)
+
+def upgrade(request):
+    return render(request,"upgradepro.html")

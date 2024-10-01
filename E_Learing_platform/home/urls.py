@@ -14,6 +14,7 @@ urlpatterns = [
     path("java",views.java,name="java"),
     path("check_user",views.check_user,name="check_user"),
     path("student",include('student.urls')),
+    path("teacher",include('teacher.urls')),
     path("logout",views.student_logout,name="logout"),
     # path("update",views.update_info, name="update_info")
 ]

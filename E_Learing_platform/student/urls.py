@@ -15,7 +15,8 @@ urlpatterns = [
    path("/chat",views.chat,name="chat"),
    path("/help",views.help,name="help"),
    path("/profile",views.profile,name="profile"),
-   path("/course/mycourse",views.mycourse,name="mycourse")
+   path("/course/mycourse",views.mycourse,name="mycourse"),
+   path("/upgrade",views.upgrade,name="upgrade"),
    
 #    path("log",views.student_logout,name='log'),
 ]
