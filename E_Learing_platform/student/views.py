@@ -58,7 +58,7 @@ def checkout(request,slug):
     temp = usercourse(user=course_user,sub=sub)
     temp.save()
     return redirect('mycourse')
-    return render(request,"checkout.html",context)
+    # return render(request,"checkout.html",context)
 
 def assignment(request):
     data = sign_up_table.objects.get(main__id =request.user.id)
